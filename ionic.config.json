@@ -1,0 +1,7 @@
+{
+  "name": "notas-hlc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
