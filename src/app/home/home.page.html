@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Notas - HLC </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Notas - HLC</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-label>Actividad</ion-label>
+  <ion-input [(ngModel)]="notaEditando.actividad"></ion-input>
+
+  <ion-label>Calificación</ion-label>
+  <ion-input [(ngModel)]="notaEditando.calificacion"></ion-input>
+
+  <ion-button (click)="clickBotonInsertar()">Añadir nota</ion-button>
+  <ion-button (click)="clickBotonBorrar()">Borrar nota</ion-button>
+  <ion-button (click)="clickBotonModificar()">Modificar nota</ion-button>
+
+  <h1>LISTA DE NOTAS 23/24</h1>
+  <ion-list>
+    <ion-item *ngFor="let documentNota of arrayColeccionNotas" (click)="selecNota(documentNota.id, documentNota.nota)">
+      <ion-grid>
+        <ion-row>
+          <h2>{{ documentNota.nota.actividad }}</h2>
+        </ion-row>
+        <ion-row>
+          <p>{{ documentNota.nota.calificacion }}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 </ion-content>
